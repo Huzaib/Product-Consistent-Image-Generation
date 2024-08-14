@@ -1,0 +1,1 @@
+## Place isnet-general-use.pth here
