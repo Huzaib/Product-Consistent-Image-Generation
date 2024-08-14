@@ -8,6 +8,10 @@ This project is my attempt at generating AI images without distorting real image
 
 This approach combines several techniques to maintain the consistency and quality of the generated images. Follow these steps to set up the project environment and install the required dependencies.
 
+## Architecture
+
+![Architecture Image](assets/architecture.png)
+
 
 ## Download Model Weights
 
@@ -42,6 +46,7 @@ rm -rf consistent_product_image_generation/ consistent_product_image_generation.
 3. **Install the remaining dependencies from `requirements.txt`:**
 
    ```sh
+   pip install packaging==24.1 wheel==0.41.2
    pip install -r requirements.txt
    ```
 

@@ -167,7 +167,7 @@ if __name__ == "__main__":
     MASKIMAGE = args.input_mask
     OUTIMAGE = args.output_path
     RESIZE_TO = (768, 512)
-    DEEPFILL_MODEL_PATH = "/app/model_weights/deepfillv2_WGAN.pth"
+    DEEPFILL_MODEL_PATH = "./model_weights/deepfillv2_WGAN.pth"
     INIT_TYPE = "xavier"
     INIT_GAIN = 0.02
     PAD_TYPE = "zero"

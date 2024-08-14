@@ -18,7 +18,7 @@ neg_prompt = """
 (((duplicate))), (bad legs), bra, one leg, extra leg, (bad face), (bad eyes), ((bad hands, bad anatomy, bad feet, missing fingers, cropped:1.0)), worst quality, jpeg artifacts, signature, (((watermark))), (username), blurry, ugly, old, wide face, ((fused fingers)), ((too many fingers)), amateur drawing, odd, fat, out of frame, (cloned face:1.3), (mutilated:1.3), (deformed:1.3), (gross proportions:1.3), (disfigured:1.3), (mutated hands:1.3), (bad hands:1.3), (extra fingers:1.3), long neck, extra limbs, broken limb, asymmetrical eyes, bad feet, necklace, drawn, illustrated
 """
 pipe = AutoPipelineForText2Image.from_pretrained(
-    "/app/model_weights/photopediaXL_45",
+    "./model_weights/photopediaXL_45",
     torch_dtype=torch.float16,
     variant="fp32",
     use_safetensors=True,
@@ -27,10 +27,10 @@ pipe = pipe.to("cuda")
 pipe.enable_vae_slicing()
 
 lora_dirs = [
-    "/app/model_weights/style_lora_realis.safetensors",
-    "/app/model_weights/pastel_colors_xl_v3.safetensors",
-    "/app/model_weights/high_key_lighting_style.safetensors",
-    "/app/model_weights/FilmStockFootageStyle.safetensors",
+    "./model_weights/style_lora_realis.safetensors",
+    "./model_weights/pastel_colors_xl_v3.safetensors",
+    "./model_weights/high_key_lighting_style.safetensors",
+    "./model_weights/FilmStockFootageStyle.safetensors",
             ]
 lora_scales = [1.0, 0.8, 0.8, 0.6]
 for ldir, lsc in zip(lora_dirs, lora_scales):
@@ -88,7 +88,7 @@ def generate_assets(scene, image, BATCH_SIZE):
 
 def combine_images(original_image, binary_mask, product_image, safety_overlap_factor = 1.42, overlap_choice = "Opaque"):
     
-    bg_path, mask_path = "/app/bg.png", "/app/mask.png"
+    bg_path, mask_path = "./bg.png", "./mask.png"
     original_image.save(bg_path)
     PIL.Image.fromarray(binary_mask).save(mask_path)
     sp.call(f"python3 inpaint.py --input_image {bg_path} --input_mask {mask_path} --output_path {bg_path}", shell=True)

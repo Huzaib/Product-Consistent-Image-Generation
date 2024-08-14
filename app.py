@@ -89,7 +89,7 @@ def process_image(
     images, text_input = generate_assets(text_input, image_input, BATCH_SIZE=3)
     texts = [prompt.strip() for prompt in text_input.split(",")]
     
-    input_image_path = "/app/bg_input.png"
+    input_image_path = "./bg_input.png"
     sp.call(f"rm -rf {input_image_path}", shell=True)
     image_input.save(input_image_path)
     product_image = PIL.Image.open(bgrem_inference(input_image_path))
