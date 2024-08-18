@@ -4,7 +4,7 @@
 
 #### Hardware Requirements: NVIDIA L4 GPU with CUDA 12.1 installed
 
-This project is my attempt at generating AI images without distorting real images. It takes a different approach compared to the [conventional method](https://huggingface.co/spaces/ameerazam08/SAM_SDXL_Inpainting).
+This project is my attempt at placing real product images in AI generated prompt-guided scenes without distorting the real product images. It takes a different approach compared to the [conventional method](https://huggingface.co/spaces/ameerazam08/SAM_SDXL_Inpainting).
 
 This approach combines several techniques to maintain the consistency and quality of the generated images. Follow these steps to set up the project environment and install the required dependencies.
 
@@ -43,7 +43,7 @@ rm -rf consistent_product_image_generation/ consistent_product_image_generation.
    pip install torch==2.3.1 torchvision==0.18.1 torchaudio==2.3.1 --index-url https://download.pytorch.org/whl/cu121
    ```
 
-3. **Install the remaining dependencies from `requirements.txt`:**
+3. **Install the remaining dependencies:**
 
    ```sh
    pip install packaging==24.1 wheel==0.41.2
