@@ -91,7 +91,8 @@ def combine_images(original_image, binary_mask, product_image, safety_overlap_fa
     bg_path, mask_path = "./bg.png", "./mask.png"
     original_image.save(bg_path)
     PIL.Image.fromarray(binary_mask).save(mask_path)
-    sp.call(f"python3 inpaint.py --input_image {bg_path} --input_mask {mask_path} --output_path {bg_path}", shell=True)
+    flush()
+    sp.call(f"python3 inpaint_v2.py --input_image {bg_path} --input_mask {mask_path} --output_path {bg_path}", shell=True)
     background_image = PIL.Image.open(bg_path).convert("RGBA")
     mask_image = PIL.Image.open(mask_path).convert("L")
     product_image_rgba = product_image.convert("RGBA")
